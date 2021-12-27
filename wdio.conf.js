@@ -1,4 +1,11 @@
 require("dotenv").config();
+const {
+    Eyes,
+    Target,
+    ClassicRunner,
+    Configuration,
+    BatchInfo
+} = require("@applitools/eyes-webdriverio");
 
 export const config = {
     //
@@ -213,9 +220,21 @@ export const config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      * @param {String} cid worker id (e.g. 0-0)
      */
-    // beforeSession: function (config, capabilities, specs, cid) {
-    //    require("@babel/register");
-    // },
+    beforeSession: function (config, capabilities, specs, cid) {
+       require("@babel/register");
+
+       const eyes = new Eyes(new ClassicRunner());
+       global.eyes = eyes;
+       global.Target = Target;
+       const batchInfo = new BatchInfo();
+       batchInfo.setSequenceName("Cucumber Tests");
+       const configuration = new Configuration();
+       configuration.setBatch(batchInfo);
+       configuration.setAppName("Automation practice");
+       configuration.setTestName("Applitools Sample: Login");
+       configuration.setApiKey(process.env.APPLITOOLS_KEY);
+       eyes.setConfiguration(configuration);
+    },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
      * variables like `browser`. It is the perfect place to define custom commands.
