@@ -1,10 +1,10 @@
 export default [
 {
-    email: "dev@gmail.com",
+    email: "cucumber_automation_dev@gmail.com",
     password: process.env.DEV_PASSWORD
 },
 {
-    email: "int@gmail.com",
+    email: "cucumber_automation_int@gmail.com",
     password: process.env.INT_PASSWORD
 }
 ];

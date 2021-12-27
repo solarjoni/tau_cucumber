@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio" ,
+    "test": "npx wdio",
     "test:regression": "npx wdio --cucumberOpts.tagExpression='@regression'",
     "test:dev": "npx wdio --cucumberOpts.tagExpression='@dev'",
     "test:int": "npx wdio --cucumberOpts.tagExpression='@int'"
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@applitools/eyes-webdriverio": "latest",
     "@babel/cli": "latest",
     "@babel/core": "latest",
     "@babel/polyfill": "latest",
@@ -26,7 +27,7 @@
   },
   "dependencies": {
     "@wdio/cli": "latest",
-    "dotenv": "^10.0.0",
+    "dotenv": "latest",
     "webdriverio": "latest"
   }
 }
