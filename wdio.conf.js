@@ -1,4 +1,6 @@
-exports.config = {
+require("dotenv").config();
+
+export const config = {
     //
     // ====================
     // Runner Configuration
@@ -60,7 +62,7 @@ exports.config = {
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--headless', '--disable-gpu'],
+            //args: ['--headless', '--disable-gpu'],
         },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -170,7 +172,7 @@ exports.config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        tagExpression: `@regression or ${process.env.ENVIRONMENT}`,
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
