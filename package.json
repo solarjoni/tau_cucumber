@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio --spec ./automationpractice/features/Navigation/menuNavigation.features" 
+    "test": "npx wdio" ,
+    "test:regression": "npx wdio --cucumberOpts.tagExpression='@regression'",
+    "test:dev": "npx wdio --cucumberOpts.tagExpression='@dev'",
+    "test:int": "npx wdio --cucumberOpts.tagExpression='@int'"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +26,7 @@
   },
   "dependencies": {
     "@wdio/cli": "latest",
+    "dotenv": "^10.0.0",
     "webdriverio": "latest"
   }
 }
